@@ -1,15 +1,14 @@
 module Main exposing (..)
 
+import Browser
+import DemoCss exposing (pageCss)
 import Html exposing (Html, div)
 import Html.Attributes exposing (class)
 import Swapper
 
 
-type alias Person =
-    { name : String
-    , age : Int
-    , cats : Int
-    }
+type Person
+    = Person String
 
 
 data : List Person
@@ -46,9 +45,14 @@ getPersonValue index _ =
     String.fromInt index
 
 
-init : Session -> ( Model, Cmd Msg )
-init session =
-    ( { swapperState = Swapper.init data .name getPersonValue }
+renderPerson : Person -> String
+renderPerson (Person name) =
+    name
+
+
+init : () -> ( Model, Cmd Msg )
+init _ =
+    ( { swapperState = Swapper.init data renderPerson getPersonValue }
     , Cmd.none
     )
 
@@ -65,17 +69,21 @@ subscriptions _ =
     Sub.none
 
 
-view : Model -> { title : String, content : Html Msg }
+view : Model -> Html Msg
 view model =
-    { title = "Home"
-    , content =
-        div
-            [ class "content-wide" ]
-            [ div
-                [ class "paper mt-4 flex" ]
-                [ div
-                    [ class "my-0 mx-auto w-1/2" ]
-                    [ Swapper.view model.swapperState SwapperMsg ]
-                ]
-            ]
-    }
+    div
+        []
+        [ pageCss
+        , div
+            [ class "container" ]
+            [ Swapper.view model.swapperState SwapperMsg ]
+        ]
+
+
+main =
+    Browser.element
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
