@@ -104,7 +104,7 @@ view model toMsg =
             List.filter (\i -> List.member i.value model.enabled) model.items
     in
     div
-        [ class "flex swapper" ]
+        [ class "swapper" ]
         [ multiSelect
             (Options availableItems <| handleSelect toMsg SelectAvailable)
             [ class "swapper__available", size 8 ]

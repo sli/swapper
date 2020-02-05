@@ -13,11 +13,14 @@ pageCss =
                 , margin2 zero auto
                 ]
             , selector "div.swapper"
-                [ padding (rem 2) ]
+                [ padding (rem 2)
+                , displayFlex
+                , flexDirection row
+                ]
             , selector "select.swapper__available"
-                [ width (pct 100), padding (rem 1) ]
+                [ width (pct 100), padding (rem 1), flexGrow (int 2) ]
             , selector "select.swapper__enabled"
-                [ width (pct 100), padding (rem 1) ]
+                [ width (pct 100), padding (rem 1), flexGrow (int 2) ]
             , selector "div.swapper__controls"
                 [ displayFlex
                 , flexDirection column
