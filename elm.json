@@ -1,0 +1,17 @@
+{
+    "type": "package",
+    "name": "sli/swapper",
+    "summary": "A simple list-swapper.",
+    "license": "MIT",
+    "version": "1.0.0",
+    "exposed-modules": [
+        "Swapper"
+    ],
+    "elm-version": "0.19.0 <= v < 0.20.0",
+    "dependencies": {
+        "abadi199/elm-input-extra": "5.2.2 <= v < 6.0.0",
+        "elm/core": "1.0.3 <= v <= 1.1.0",
+        "elm/html": "1.0.0 <= v <= 1.1.0"
+    },
+    "test-dependencies": {}
+}
