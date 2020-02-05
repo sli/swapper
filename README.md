@@ -1,6 +1,6 @@
 # Swapper
 
-A simple list-sapper for Elm.
+A simple list-swapper for Elm.
 
 # Features
 
